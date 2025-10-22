@@ -15,10 +15,24 @@ public class DoTest {
     }
 
     @Test
-    @DisplayName("Add two positive numbers")
+    @DisplayName("Add positive")
     public void addTest() {
         int result = does.add(2,3);
         Assertions.assertEquals(5, result);
+    }
+
+    @Test
+    @DisplayName("Add zero")
+    public void addZeroTest() {
+        int result = does.add(5,0);
+        Assertions.assertEquals(5, result);
+    }
+
+    @Test
+    @DisplayName("Add negative")
+    public void addNegativeTest() {
+        int result = does.add(-2,-3);
+        Assertions.assertEquals(-5, result);
     }
 
     @Test
