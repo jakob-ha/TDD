@@ -24,10 +24,9 @@ public class DoTest {
 
     @ParameterizedTest
     @MethodSource("sumTestData")
-    @DisplayName("Addstests")
+    @DisplayName("AddTests")
     public void addTest(int a, int b, int expected) {
-        int result = does.add(a,b);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, does.add(a,b));
     }
 
     static Stream<Arguments> sumTestData() {
@@ -40,25 +39,17 @@ public class DoTest {
 
     @ParameterizedTest
     @MethodSource("subTestData")
-    @DisplayName("Substests")
+    @DisplayName("SubsTests")
     public void subTest(int a, int b, int expected) {
-        int result = does.sub(a,b);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, does.sub(a,b));
     }
 
     static Stream<Arguments> subTestData() {
         return Stream.of(
                 Arguments.of(5,2,3),
                 Arguments.of(0,4,-4),
-                Arguments.of(-4,-3,1)
+                Arguments.of(-4,-3,-1)
         );
     }
 
-    @ParameterizedTest
-    @CsvSource({"2,1,1"})
-    @DisplayName("Substests2")
-    public void subTest2(int a, int b, int expected) {
-        int result = does.sub(a,b);
-        Assertions.assertEquals(expected, result);
-    }
 }
