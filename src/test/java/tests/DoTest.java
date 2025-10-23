@@ -76,7 +76,8 @@ public class DoTest {
 
     static Stream<Arguments> divTestData() {
         return Stream.of(
-                Arguments.of(10,2,5)
+                Arguments.of(10,2,5),
+                Arguments.of(3,0,new Throwable("Dividing by zero"))
         );
     }
 
