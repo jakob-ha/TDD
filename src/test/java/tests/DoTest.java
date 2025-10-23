@@ -42,6 +42,7 @@ public class DoTest {
         int result = does.sub(5,3);
         Assertions.assertEquals(2, result);
     }
+
 /*
     @Test
     public void mulTest() {
@@ -54,5 +55,6 @@ public class DoTest {
         int result = does.div(6,3);
         Assertions.assertEquals(2, result);
     }
+    */
+
 }
-*/
