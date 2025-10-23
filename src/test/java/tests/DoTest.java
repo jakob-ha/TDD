@@ -62,7 +62,8 @@ public class DoTest {
     static Stream<Arguments> mulTestData() {
         return Stream.of(
                 Arguments.of(5,2,10),
-                Arguments.of(2,2,4)
+                Arguments.of(2,2,4),
+                Arguments.of(0,-2,0)
         );
     }
 
