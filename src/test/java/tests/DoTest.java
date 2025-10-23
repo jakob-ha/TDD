@@ -67,4 +67,17 @@ public class DoTest {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("divTestData")
+    @DisplayName("DivTests")
+    public void divTest(int a, int b, int expected) {
+        Assertions.assertEquals(expected, does.div(a,b));
+    }
+
+    static Stream<Arguments> divTestData() {
+        return Stream.of(
+                Arguments.of(5,2,10)
+        );
+    }
+
 }
