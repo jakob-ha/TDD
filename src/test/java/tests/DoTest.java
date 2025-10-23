@@ -39,7 +39,7 @@ public class DoTest {
 
     @ParameterizedTest
     @MethodSource("subTestData")
-    @DisplayName("SubsTests")
+    @DisplayName("SubTests")
     public void subTest(int a, int b, int expected) {
         Assertions.assertEquals(expected, does.sub(a,b));
     }
@@ -49,6 +49,19 @@ public class DoTest {
                 Arguments.of(5,2,3),
                 Arguments.of(0,4,-4),
                 Arguments.of(-4,-3,-1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("mulTestData")
+    @DisplayName("MulTests")
+    public void mulTest(int a, int b, int expected) {
+        Assertions.assertEquals(expected, does.mul(a,b));
+    }
+
+    static Stream<Arguments> mulTestData() {
+        return Stream.of(
+                Arguments.of(5,2,10)
         );
     }
 
