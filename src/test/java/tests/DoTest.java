@@ -76,7 +76,7 @@ public class DoTest {
 
     static Stream<Arguments> divTestData() {
         return Stream.of(
-                Arguments.of(5,2,10)
+                Arguments.of(10,2,5)
         );
     }
 
