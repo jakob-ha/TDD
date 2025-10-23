@@ -38,4 +38,19 @@ public class DoTest {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("subTestData")
+    @DisplayName("Substests")
+    public void subTest(int a, int b, int expected) {
+        int result = does.sub(a,b);
+        Assertions.assertEquals(expected, result);
+    }
+
+    static Stream<Arguments> subTestData() {
+        return Stream.of(
+                Arguments.of(5,2,3)
+//                Arguments.of(0,4,4),
+//                Arguments.of(-4,-3,-7)
+        );
+    }
 }
