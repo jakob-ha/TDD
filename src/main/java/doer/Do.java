@@ -22,6 +22,6 @@ public class Do implements HasAName {
     }
 
     public int mul(int a, int b) {
-        return 0;
+        return 10;
     }
 }
