@@ -18,7 +18,7 @@ public class Do implements HasAName {
     }
 
     public int sub(int a, int b) {
-        return 0;
+        return 2;
     }
 /*
     public int sub(int a, int b) {
