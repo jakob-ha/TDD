@@ -1,6 +1,7 @@
 package tests;
 
 import doer.Do;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -70,14 +71,18 @@ public class DoTest {
     @ParameterizedTest
     @MethodSource("divTestData")
     @DisplayName("DivTests")
-    public void divTest(int a, int b, int expected) {
-        Assertions.assertEquals(expected, does.div(a,b));
+    public <T> void divTest(int a, int b, T expected) {
+        if (expected instanceof ArithmeticException) {
+            Assert.assertThrows(ArithmeticException.class, () -> does.div(a,b));
+        }
+        else{Assertions.assertEquals(expected, does.div(a,b));}
+
     }
 
     static Stream<Arguments> divTestData() {
         return Stream.of(
                 Arguments.of(10,2,5),
-                Arguments.of(3,0,new Throwable("Dividing by zero"))
+                Arguments.of(3,0,new ArithmeticException("Division by zero"))
         );
     }
 
