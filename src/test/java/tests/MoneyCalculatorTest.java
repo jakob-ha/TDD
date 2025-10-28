@@ -35,11 +35,13 @@ public class MoneyCalculatorTest {
     }
 
     @Test
+    @DisplayName("Don't Allow Negative USD")
     void shouldThrowExceptionForNegativeUSDTest() {
         assertThatThrownBy(() -> moneyCalculator.dollarsToEuros(new BigDecimal("-10.00"))).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
     }
 
     @Test
+    @DisplayName("Expect 2 Decimals")
     void shouldHaveTwoDecimalPlacesTest() {
         BigDecimal value1 = new BigDecimal("100");
         BigDecimal value2 = new BigDecimal("200.000");
@@ -49,5 +51,13 @@ public class MoneyCalculatorTest {
         Assertions.assertNotEquals(2, value2.scale());
         Assertions.assertEquals(2, result1.scale());
         Assertions.assertEquals(2, result2.scale());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"92.00, 100.00"})
+    @DisplayName("Euro to Dollar Converter")
+    void euroToDollarConversionTest(BigDecimal euroAmount, BigDecimal dollarAmountExpected){
+        BigDecimal dollarValueCalculated = moneyCalculator.eurosToDollars(euroAmount);
+        assertThat(dollarValueCalculated).isEqualByComparingTo(dollarAmountExpected);
     }
 }
