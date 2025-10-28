@@ -20,7 +20,8 @@ public class TimeConverterTest {
 
     @ParameterizedTest
     @CsvSource({
-            "120, 2.0"
+            "120, 2.0",
+            "90, 1.5"
     })
     @DisplayName("Should Convert Seconds to Minutes")
     void shouldConvertSecondsToMinutes(long seconds, double minutesExpected) {
@@ -36,7 +37,8 @@ public class TimeConverterTest {
     @ParameterizedTest
     @CsvSource({
             "1.0, 60",
-            "2.0, 120"
+            "2.0, 120",
+            "2.5, 150"
     })
     @DisplayName("Should Convert Minutes to Seconds")
     void shouldConvertMinutesToSeconds(double minutes, long secondsExpected) {
