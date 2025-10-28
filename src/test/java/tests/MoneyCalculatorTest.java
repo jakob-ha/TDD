@@ -1,10 +1,7 @@
 package tests;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import utils.MoneyCalculator;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -66,4 +63,18 @@ public class MoneyCalculatorTest {
         BigDecimal dollarValueCalculated = moneyCalculator.eurosToDollars(euroAmount);
         assertThat(dollarValueCalculated).isEqualByComparingTo(dollarAmountExpected);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "100.00",
+            "0",
+            "999999999999999999999.99"
+    })
+    @DisplayName("Round Trip")
+    void roundTripTest(BigDecimal value) {
+        assertThat(value).isEqualByComparingTo(moneyCalculator.dollarsToEuros(moneyCalculator.eurosToDollars(value)));
+        assertThat(value).isEqualByComparingTo(moneyCalculator.eurosToDollars(moneyCalculator.dollarsToEuros(value)));
+    }
 }
+
+
