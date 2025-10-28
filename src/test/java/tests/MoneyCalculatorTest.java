@@ -45,12 +45,16 @@ public class MoneyCalculatorTest {
     void shouldHaveTwoDecimalPlacesTest() {
         BigDecimal value1 = new BigDecimal("100");
         BigDecimal value2 = new BigDecimal("200.000");
+        BigDecimal value3 = new BigDecimal("9999999999");
         BigDecimal result1 = moneyCalculator.dollarsToEuros(value1);
         BigDecimal result2 = moneyCalculator.dollarsToEuros(value2);
+        BigDecimal result3 = moneyCalculator.dollarsToEuros(value3);
         Assertions.assertNotEquals(2, value1.scale());
         Assertions.assertNotEquals(2, value2.scale());
+        Assertions.assertNotEquals(2, value3.scale());
         Assertions.assertEquals(2, result1.scale());
         Assertions.assertEquals(2, result2.scale());
+        Assertions.assertEquals(2, result3.scale());
     }
 
     @ParameterizedTest
