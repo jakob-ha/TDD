@@ -23,7 +23,9 @@ public class MoneyCalculatorTest {
     @ParameterizedTest
     @CsvSource({
             "100.00, 92.00",
-            "200.00, 184.00"})
+            "200.00, 184.00",
+            "0.00,0.00",
+            "-200.00, -184.00"})
     @DisplayName("Dollar to Euro Converter")
     void dollarToEuroConversionTest(BigDecimal dollarAmount, BigDecimal euroAmountExpected) {
         BigDecimal euroValueCalculated = moneyCalculator.dollarsToEuros(dollarAmount);
