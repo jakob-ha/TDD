@@ -16,6 +16,6 @@ public class TimeConverter {
     }
 
     public long minutesToSeconds(double minutes) {
-        return 0;
+        return 60;
     }
 }
