@@ -1,33 +1,31 @@
 package tests;
 
-import doer.Do;
+import utils.Calculator;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
 @DisplayName("Calculator Test")
-public class DoTest {
-    Do does;
+public class CalculatorTest {
+    Calculator calculator;
 
     @BeforeEach
     public void setUp() {
-        does = new Do("Constructor Name");
-        does.injectName("Injected Name");
+        calculator = new Calculator("Constructor Name");
+        calculator.injectName("Injected Name");
     }
 
     @ParameterizedTest
     @MethodSource("sumTestData")
     @DisplayName("AddTests")
     public void addTest(int a, int b, int expected) {
-        Assertions.assertEquals(expected, does.add(a,b));
+        Assertions.assertEquals(expected, calculator.add(a,b));
     }
 
     static Stream<Arguments> sumTestData() {
@@ -42,7 +40,7 @@ public class DoTest {
     @MethodSource("subTestData")
     @DisplayName("SubTests")
     public void subTest(int a, int b, int expected) {
-        Assertions.assertEquals(expected, does.sub(a,b));
+        Assertions.assertEquals(expected, calculator.sub(a,b));
     }
 
     static Stream<Arguments> subTestData() {
@@ -57,7 +55,7 @@ public class DoTest {
     @MethodSource("mulTestData")
     @DisplayName("MulTests")
     public void mulTest(int a, int b, int expected) {
-        Assertions.assertEquals(expected, does.mul(a,b));
+        Assertions.assertEquals(expected, calculator.mul(a,b));
     }
 
     static Stream<Arguments> mulTestData() {
@@ -73,9 +71,9 @@ public class DoTest {
     @DisplayName("DivTests")
     public <T> void divTest(int a, int b, T expected) {
         if (expected instanceof ArithmeticException) {
-            Assert.assertThrows(ArithmeticException.class, () -> does.div(a,b));
+            Assert.assertThrows(ArithmeticException.class, () -> calculator.div(a,b));
         }
-        else{Assertions.assertEquals(expected, does.div(a,b));}
+        else{Assertions.assertEquals(expected, calculator.div(a,b));}
 
     }
 

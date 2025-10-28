@@ -1,10 +1,10 @@
-package doer;
+package utils;
 
-public class Do implements HasAName {
-    String injectedName;
-    String constructorName;
+public class Calculator implements HasAName {
+    private String injectedName;
+    private final String constructorName;
 
-    public Do(String constructorName){
+    public Calculator(String constructorName){
         this.constructorName = constructorName;
     }
 

@@ -1,25 +1,23 @@
 package tests;
 
-import doer.MoneyDo;
-import org.junit.jupiter.api.Assertions;
+import utils.MoneyCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class MoneyDoTest {
+public class MoneyCalculatorTest {
 
-    MoneyDo moneyDo;
+    MoneyCalculator moneyCalculator;
 
     @BeforeEach
     public void setup() {
-        moneyDo = new MoneyDo();
+        moneyCalculator = new MoneyCalculator();
     }
 
     @ParameterizedTest
@@ -28,7 +26,7 @@ public class MoneyDoTest {
             "200.00, 184.00"})
     @DisplayName("Dollar to Euro Converter")
     void dollarToEuroConversionTest(BigDecimal dollarAmount, BigDecimal euroAmountExpected) {
-        BigDecimal euroValueCalculated = moneyDo.dollarsToEuros(dollarAmount);
+        BigDecimal euroValueCalculated = moneyCalculator.dollarsToEuros(dollarAmount);
         assertThat(euroValueCalculated).isEqualByComparingTo(euroAmountExpected);
     }
 }
