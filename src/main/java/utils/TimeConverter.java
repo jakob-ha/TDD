@@ -16,6 +16,6 @@ public class TimeConverter {
     }
 
     public long minutesToSeconds(double minutes) {
-        return 60;
+        return (long) ((long) SECONDS_PER_MINUTE * minutes);
     }
 }
