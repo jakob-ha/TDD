@@ -9,6 +9,6 @@ public class MoneyCalculator {
 
     public BigDecimal dollarsToEuros(BigDecimal dollarAmount) {
         if (dollarAmount.signum() == -1) {throw new IllegalArgumentException("dollarAmount must not be negative");}
-        return dollarAmount.multiply(USD_TO_EUR, new MathContext(3, RoundingMode.HALF_UP));
+        return dollarAmount.multiply(USD_TO_EUR).setScale(2, RoundingMode.HALF_UP);
     }
 }
