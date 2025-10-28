@@ -32,6 +32,7 @@ public class TimeConverterTest {
     @DisplayName("Validation Negatives")
     void shouldThrowExceptionForNegativeSeconds() {
         Assertions.assertThatThrownBy(() -> converter.secondsToMinutes(-10)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
+        Assertions.assertThatThrownBy(() -> converter.minutesToSeconds(-10)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
     }
 
     @ParameterizedTest
@@ -44,4 +45,6 @@ public class TimeConverterTest {
     void shouldConvertMinutesToSeconds(double minutes, long secondsExpected) {
         assertThat(converter.minutesToSeconds(minutes)).isEqualTo(secondsExpected);
     }
+
+
 }
