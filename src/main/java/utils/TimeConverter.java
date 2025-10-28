@@ -5,8 +5,7 @@ public class TimeConverter {
 
     public double secondsToMinutes(long seconds) {
         validateNonNegative(seconds, "secondsToMinutes");
-        return 1.0;
-        //return (double) seconds / SECONDS_PER_MINUTE;
+        return (double) seconds / SECONDS_PER_MINUTE;
     }
 
     private void validateNonNegative(long value, String name) {

@@ -23,7 +23,7 @@ public class TimeConverterTest {
             "120, 2.0"
     })
     @DisplayName("Should Convert Seconds to Minutes")
-    void shouldConvertSecondsToMinutes(long seconds, long minutesExpected) {
+    void shouldConvertSecondsToMinutes(long seconds, double minutesExpected) {
         assertThat(converter.secondsToMinutes(seconds)).isEqualTo(minutesExpected);
     }
 
