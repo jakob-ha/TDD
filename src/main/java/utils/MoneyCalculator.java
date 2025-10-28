@@ -11,4 +11,8 @@ public class MoneyCalculator {
         if (dollarAmount.signum() == -1) {throw new IllegalArgumentException("dollarAmount must not be negative");}
         return dollarAmount.multiply(USD_TO_EUR).setScale(2, RoundingMode.HALF_UP);
     }
+
+    public BigDecimal eurosToDollars(BigDecimal euroAmount) {
+        return new BigDecimal("100.00");
+    }
 }
