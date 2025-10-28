@@ -14,6 +14,7 @@ public class MoneyCalculator {
     }
 
     public BigDecimal eurosToDollars(BigDecimal euroAmount) {
+        if (euroAmount.signum() == -1) {throw new IllegalArgumentException("euroAmount must not be negative");}
         return euroAmount.multiply(EUR_TO_USD).setScale(2, RoundingMode.HALF_UP);
     }
 }
