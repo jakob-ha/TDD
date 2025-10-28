@@ -26,7 +26,7 @@ public class TimeConverterTest {
     void shouldConvertSecondsToMinutes(long seconds) {}
 
     @Test
-    @DisplayName("Validation")
+    @DisplayName("Validation Negatives")
     void shouldThrowExceptionForNegativeSeconds() {
         Assertions.assertThatThrownBy(() -> converter.secondsToMinutes(-10)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
     }
