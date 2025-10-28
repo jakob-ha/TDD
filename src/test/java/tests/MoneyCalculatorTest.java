@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import utils.MoneyCalculator;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +35,19 @@ public class MoneyCalculatorTest {
     }
 
     @Test
-    void shouldThrowExceptionForNegativeUSD() {
+    void shouldThrowExceptionForNegativeUSDTest() {
         assertThatThrownBy(() -> moneyCalculator.dollarsToEuros(new BigDecimal("-10.00"))).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
+    }
+
+    @Test
+    void shouldHaveTwoDecimalPlacesTest() {
+        BigDecimal value1 = new BigDecimal("100");
+        BigDecimal value2 = new BigDecimal("200.000");
+        BigDecimal result1 = moneyCalculator.dollarsToEuros(value1);
+        BigDecimal result2 = moneyCalculator.dollarsToEuros(value2);
+        Assertions.assertNotEquals(2, value1.scale());
+        Assertions.assertNotEquals(2, value2.scale());
+        Assertions.assertEquals(2, result1.scale());
+        Assertions.assertEquals(2, result2.scale());
     }
 }
