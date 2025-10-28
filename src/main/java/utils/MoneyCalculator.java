@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 
 public class MoneyCalculator {
     private static final BigDecimal USD_TO_EUR = new BigDecimal("0.92");
+    private static final BigDecimal EUR_TO_USD = new BigDecimal("1.00").divide(USD_TO_EUR, MathContext.DECIMAL128);
 
     public BigDecimal dollarsToEuros(BigDecimal dollarAmount) {
         if (dollarAmount.signum() == -1) {throw new IllegalArgumentException("dollarAmount must not be negative");}
@@ -13,6 +14,6 @@ public class MoneyCalculator {
     }
 
     public BigDecimal eurosToDollars(BigDecimal euroAmount) {
-        return new BigDecimal("100.00");
+        return euroAmount.multiply(EUR_TO_USD).setScale(2, RoundingMode.HALF_UP);
     }
 }
