@@ -75,8 +75,7 @@ public class TimeConverterTest {
 
     @ParameterizedTest
     @CsvSource({
-            "1, 60",
-            "2, 120"
+            "24, 1"
     })
     @DisplayName("Should Convert Hours to Days")
     void shouldConvertHoursToDays(long hours, double daysExpected) {
