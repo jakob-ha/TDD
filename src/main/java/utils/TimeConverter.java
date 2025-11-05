@@ -32,6 +32,6 @@ public class TimeConverter {
     }
 
     public long daysToHours(double days) {
-        return 24;
+       return Math.round(days * HOURS_PER_DAY);
     }
 }
