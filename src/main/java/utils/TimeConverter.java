@@ -11,7 +11,7 @@ public class TimeConverter {
 
     public double secondsToMinutes(long seconds) {
         validateNonNegative(seconds, "secondsToMinutes");
-        return (double) seconds / SECONDS_PER_MINUTE;
+        return seconds / (double) SECONDS_PER_MINUTE;
     }
 
     public long minutesToSeconds(double minutes) {
@@ -20,7 +20,7 @@ public class TimeConverter {
     }
 
     public double minutesToHours(long minutes) {
-        return (long) ( minutes / (double) MINUTES_PER_HOUR);
+        return minutes / (double) MINUTES_PER_HOUR;
     }
 
     public long hoursToMinutes(double hours) {
