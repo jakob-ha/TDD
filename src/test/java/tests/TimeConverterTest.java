@@ -62,4 +62,13 @@ public class TimeConverterTest {
     void shouldConvertMinutesToHours(double minutes, long hoursExpected) {
         assertThat(converter.minutesToHours(minutes)).isEqualTo(hoursExpected);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, 60"
+    })
+    @DisplayName("Should Convert Hours to Minutes")
+    void shouldConvertHoursToMinutes(double hours, long minutesExpected) {
+        assertThat(converter.hoursToMinutes(hours)).isEqualTo(minutesExpected);
+    }
 }
