@@ -13,6 +13,13 @@ public class TimeConverterTest {
     private final TimeConverter converter = new TimeConverter();
 
     @Test
+    @DisplayName("Validation Negatives")
+    void shouldThrowExceptionForNegativeSeconds() {
+        Assertions.assertThatThrownBy(() -> converter.secondsToMinutes(-10)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
+        Assertions.assertThatThrownBy(() -> converter.minutesToSeconds(-10)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
+    }
+
+    @Test
     @DisplayName("Should convert 60 seconds to 1 minute")
     void shouldConvert60SecondsTo1Minute() {
         assertThat(converter.secondsToMinutes(60)).isEqualTo(1.0);
@@ -26,13 +33,6 @@ public class TimeConverterTest {
     @DisplayName("Should Convert Seconds to Minutes")
     void shouldConvertSecondsToMinutes(long seconds, double minutesExpected) {
         assertThat(converter.secondsToMinutes(seconds)).isEqualTo(minutesExpected);
-    }
-
-    @Test
-    @DisplayName("Validation Negatives")
-    void shouldThrowExceptionForNegativeSeconds() {
-        Assertions.assertThatThrownBy(() -> converter.secondsToMinutes(-10)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
-        Assertions.assertThatThrownBy(() -> converter.minutesToSeconds(-10)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("negative");
     }
 
     @ParameterizedTest
@@ -59,7 +59,7 @@ public class TimeConverterTest {
             "120, 2"
     })
     @DisplayName("Should Convert Minutes to Hours")
-    void shouldConvertMinutesToHours(double minutes, long hoursExpected) {
+    void shouldConvertMinutesToHours(long minutes, double hoursExpected) {
         assertThat(converter.minutesToHours(minutes)).isEqualTo(hoursExpected);
     }
 
