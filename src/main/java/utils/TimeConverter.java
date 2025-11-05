@@ -30,4 +30,8 @@ public class TimeConverter {
     public double hoursToDays(long hours) {
         return hours / (double) HOURS_PER_DAY;
     }
+
+    public long daysToHours(double days) {
+        return 24;
+    }
 }
