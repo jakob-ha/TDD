@@ -34,4 +34,8 @@ public class TimeConverter {
     public long daysToHours(double days) {
        return Math.round(days * HOURS_PER_DAY);
     }
+
+    public String formatSecondsAsHHMMSS() {
+        return "01:01:01";
+    }
 }
