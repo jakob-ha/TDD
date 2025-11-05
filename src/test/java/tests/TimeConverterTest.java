@@ -55,7 +55,8 @@ public class TimeConverterTest {
 
     @ParameterizedTest
     @CsvSource({
-            "60, 1"
+            "60, 1",
+            "120, 2"
     })
     @DisplayName("Should Convert Minutes to Hours")
     void shouldConvertMinutesToHours(double minutes, long hoursExpected) {
