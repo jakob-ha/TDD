@@ -35,7 +35,7 @@ public class TimeConverter {
        return Math.round(days * HOURS_PER_DAY);
     }
 
-    public String formatSecondsAsHHMMSS() {
+    public String formatSecondsAsHHMMSS(long seconds) {
         return "01:01:01";
     }
 }

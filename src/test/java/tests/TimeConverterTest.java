@@ -95,10 +95,11 @@ public class TimeConverterTest {
 
     @ParameterizedTest
     @CsvSource({
-            "3661, 01:01:01"
+            "3661, 01:01:01",
+            "1, 00:00:01"
     })
     @DisplayName("Should Format Seconds as HH:MM:SS")
     void shouldFormatSecondsAsHHMMSS(long seconds, String expected) {
-        assertThat(converter.formatSecondsAsHHMMSS()).isEqualTo(expected);
+        assertThat(converter.formatSecondsAsHHMMSS(seconds)).isEqualTo(expected);
     }
 }
