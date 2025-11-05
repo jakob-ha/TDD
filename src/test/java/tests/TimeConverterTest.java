@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import utils.TimeConverter;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatStream;
 
 public class TimeConverterTest {
     private final TimeConverter converter = new TimeConverter();
@@ -52,5 +51,14 @@ public class TimeConverterTest {
     void shouldRoundTrip() {
         assertThat(200).isEqualTo(converter.minutesToSeconds(converter.secondsToMinutes(200)));
         assertThat(2.0).isEqualTo(converter.secondsToMinutes(converter.minutesToSeconds(2.0)));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "60, 1"
+    })
+    @DisplayName("Should Convert Minutes to Hours")
+    void shouldConvertMinutesToHours(double minutes, long hoursExpected) {
+        assertThat(converter.minutesToHours(minutes)).isEqualTo(hoursExpected);
     }
 }
