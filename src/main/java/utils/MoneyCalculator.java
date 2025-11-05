@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
+/**
+ * This class converts money
+ */
 public class MoneyCalculator {
     private static final BigDecimal USD_TO_EUR = new BigDecimal("0.92");
     private static final BigDecimal EUR_TO_USD = new BigDecimal("1.00").divide(USD_TO_EUR, MathContext.DECIMAL128);

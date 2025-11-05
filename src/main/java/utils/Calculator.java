@@ -4,6 +4,10 @@ public class Calculator implements HasAName {
     private String injectedName;
     private final String constructorName;
 
+    /**
+     * This class calculates
+     */
+
     public Calculator(String constructorName){
         this.constructorName = constructorName;
     }

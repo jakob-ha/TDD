@@ -1,5 +1,9 @@
 package utils;
 
+
+/**
+ * This class converts time
+ */
 public class TimeConverter {
     private static final int SECONDS_PER_MINUTE = 60;
     private static final int MINUTES_PER_HOUR = 60;
