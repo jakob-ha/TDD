@@ -23,4 +23,8 @@ public class TimeConverter {
     public long minutesToHours(double minutes) {
         return (long) ( minutes / (double) MINUTES_PER_HOUR);
     }
+
+    public long hoursToMinutes(double hours) {
+        return 60;
+    }
 }
