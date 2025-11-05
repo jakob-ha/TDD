@@ -92,4 +92,13 @@ public class TimeConverterTest {
     void shouldConvertDaysToHours(double days, long hoursExpected) {
         assertThat(converter.daysToHours(days)).isEqualTo(hoursExpected);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "3661, 01:01:01"
+    })
+    @DisplayName("Should Format Seconds as HH:MM:SS")
+    void shouldFormatSecondsAsHHMMSS(long seconds, String expected) {
+        assertThat(converter.formatSecondsAsHHMMSS()).isEqualTo(expected);
+    }
 }
