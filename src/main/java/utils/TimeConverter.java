@@ -2,8 +2,8 @@ package utils;
 
 public class TimeConverter {
     private static final int SECONDS_PER_MINUTE = 60;
-    private static final int MINUTES_PER_HOUR = SECONDS_PER_MINUTE * 60;
-    private static final int HOURS_PER_DAY = MINUTES_PER_HOUR * 24;
+    private static final int MINUTES_PER_HOUR = 60;
+    private static final int HOURS_PER_DAY = 24;
 
 
     public double secondsToMinutes(long seconds) {
@@ -21,6 +21,6 @@ public class TimeConverter {
     }
 
     public long minutesToHours(double minutes) {
-        return 1;
+        return (long) ( minutes / (double) MINUTES_PER_HOUR);
     }
 }
