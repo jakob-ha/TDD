@@ -72,4 +72,14 @@ public class TimeConverterTest {
     void shouldConvertHoursToMinutes(double hours, long minutesExpected) {
         assertThat(converter.hoursToMinutes(hours)).isEqualTo(minutesExpected);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, 60",
+            "2, 120"
+    })
+    @DisplayName("Should Convert Hours to Days")
+    void shouldConvertHoursToDays(long hours, double daysExpected) {
+        assertThat(converter.hoursToDays(hours)).isEqualTo(daysExpected);
+    }
 }
