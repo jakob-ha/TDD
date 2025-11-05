@@ -19,4 +19,8 @@ public class TimeConverter {
         validateNonNegative((long)minutes, "secondsToMinutes");
         return (long) ((long) SECONDS_PER_MINUTE * minutes);
     }
+
+    public long minutesToHours(double minutes) {
+        return 1;
+    }
 }
