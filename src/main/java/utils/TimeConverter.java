@@ -26,4 +26,8 @@ public class TimeConverter {
     public long hoursToMinutes(double hours) {
         return Math.round(hours * MINUTES_PER_HOUR);
     }
+
+    public double hoursToDays(long hours) {
+        return 1;
+    }
 }
