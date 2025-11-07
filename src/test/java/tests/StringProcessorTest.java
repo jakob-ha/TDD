@@ -37,7 +37,8 @@ public class StringProcessorTest {
     "abc,false",
     "Abba,true",
     "AB BA,true",
-    "😊😒😊,true"})
+    "😊😒😊,true",
+    "🎶😢,false"})
     @DisplayName("Tests whether simple strings can be reversed")
     public void shouldDetectPalindrome(String input, boolean expected) {
         assertEquals(expected, processor.detectPalindrome(input));
