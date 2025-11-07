@@ -7,6 +7,7 @@ public class StringProcessor {
     }
 
     public boolean detectPalindrome(String input) {
-        return true;
+        StringBuilder result = new StringBuilder(input);
+        return input.contentEquals(result.reverse());
     }
 }
