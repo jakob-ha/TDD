@@ -37,3 +37,7 @@
   - with spaces ✅
   - single character ✅
   - null and empty should be palindrome ✅
+- String compression
+  - should
+- Word Counter
+  - should
