@@ -9,7 +9,7 @@ import utils.StringProcessor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * String processor will be able to reverse strings
+ * String processor will be able to reverse strings and detect palindromes
  */
 public class StringProcessorTest {
     private StringProcessor processor;
@@ -30,5 +30,12 @@ public class StringProcessorTest {
     @DisplayName("Tests whether simple strings can be reversed")
     public void shouldReverseSimpleString(String input, String expected) {
         assertEquals(expected, processor.reverse(input));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"abba,true"})
+    @DisplayName("Tests whether simple strings can be reversed")
+    public void shouldDetectPalindrome(String input, boolean expected) {
+        assertEquals(expected, processor.detectPalindrome(input));
     }
 }
