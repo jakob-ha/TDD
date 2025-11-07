@@ -33,4 +33,4 @@
 - Palindrome
   - detectsimple
   - detect non
-  - case insensetive
+  - case-insensitive
