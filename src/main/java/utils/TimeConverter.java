@@ -10,7 +10,9 @@ public class TimeConverter {
     private static final int HOURS_PER_DAY = 24;
 
     private void validateNonNegative(long value, String name) {
-        if(value < 0){throw new IllegalArgumentException(name + " cannot be negative");}
+        if (value < 0) {
+            throw new IllegalArgumentException(name + " cannot be negative");
+        }
     }
 
     public double secondsToMinutes(long seconds) {
@@ -19,7 +21,7 @@ public class TimeConverter {
     }
 
     public long minutesToSeconds(double minutes) {
-        validateNonNegative((long)minutes, "secondsToMinutes");
+        validateNonNegative((long) minutes, "secondsToMinutes");
         return Math.round(SECONDS_PER_MINUTE * minutes);
     }
 
@@ -36,10 +38,20 @@ public class TimeConverter {
     }
 
     public long daysToHours(double days) {
-       return Math.round(days * HOURS_PER_DAY);
+        return Math.round(days * HOURS_PER_DAY);
     }
 
-    public String formatSecondsAsHHMMSS(long seconds) {
-        return "01:01:01";
+    public String formatSecondsAsHHMMSS(long totalSeconds) {
+        if (totalSeconds < 0) {
+            throw new IllegalArgumentException("Total seconds cannot be negative.");
+        }
+
+        long hours = totalSeconds / 3600;
+        long remainingSecondsAfterHours = totalSeconds % 3600;
+        long minutes = remainingSecondsAfterHours / 60;
+        long seconds = remainingSecondsAfterHours % 60;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
+
 }
