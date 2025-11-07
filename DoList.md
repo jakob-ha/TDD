@@ -25,12 +25,12 @@
 ## StringProcessor
 
 - String reverse hardcode
-  - Before each setup
-  - shouldReverseSimpleString
-- Single character
-- Empty Strings
-- Blank spaces preserved
-- Palindrome
-  - detectsimple
-  - detect non
-  - case-insensitive
+  - Before each setup ✅
+  - shouldReverseSimpleString ✅
+- Single character ✅
+- Empty Strings ✅
+- Blank spaces preserved ✅
+- Palindrome 
+  - detectsimple ✅
+  - detect non ✅
+  - case-insensitive ✅
