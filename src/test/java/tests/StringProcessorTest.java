@@ -1,0 +1,28 @@
+package tests;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import utils.StringProcessor;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+ * String processor will be able to reverse strings
+ */
+public class StringProcessorTest {
+    private StringProcessor processor;
+
+    @BeforeEach
+    public void setUp() {
+        processor = new StringProcessor();
+    }
+
+    @ParameterizedTest
+    @CsvSource({"abra, arba"})
+    @DisplayName("Tests whether simple strings can be reversed")
+    public void shouldReverseSimpleString(String input, String expected) {
+        assertEquals(expected, processor.reverse(input));
+    }
+}
