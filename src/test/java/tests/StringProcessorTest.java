@@ -23,7 +23,8 @@ public class StringProcessorTest {
     @CsvSource({"abra, arba",
     "kadabra, arbadak",
     "'',''",
-    "this contains spaces,secaps sniatnoc siht"})
+    "this contains spaces,secaps sniatnoc siht",
+    " abc , cba "})
     @DisplayName("Tests whether simple strings can be reversed")
     public void shouldReverseSimpleString(String input, String expected) {
         assertEquals(expected, processor.reverse(input));
