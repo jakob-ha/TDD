@@ -5,4 +5,8 @@ public class StringProcessor {
         StringBuilder result = new StringBuilder(input);
         return result.reverse().toString();
     }
+
+    public boolean detectPalindrome(String input) {
+        return true;
+    }
 }
