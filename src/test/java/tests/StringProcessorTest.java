@@ -33,7 +33,8 @@ public class StringProcessorTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"abba,true"})
+    @CsvSource({"abba,true",
+    "abc,false"})
     @DisplayName("Tests whether simple strings can be reversed")
     public void shouldDetectPalindrome(String input, boolean expected) {
         assertEquals(expected, processor.detectPalindrome(input));
