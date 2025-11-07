@@ -34,3 +34,6 @@
   - detectsimple ✅
   - detect non ✅
   - case-insensitive ✅
+  - with spaces
+  - single character
+  - null and empty should be palindrome
