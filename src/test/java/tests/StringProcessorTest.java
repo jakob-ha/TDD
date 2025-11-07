@@ -21,7 +21,8 @@ public class StringProcessorTest {
 
     @ParameterizedTest
     @CsvSource({"abra, arba",
-    "kadabra, arbadak"})
+    "kadabra, arbadak",
+    "'',''"})
     @DisplayName("Tests whether simple strings can be reversed")
     public void shouldReverseSimpleString(String input, String expected) {
         assertEquals(expected, processor.reverse(input));
