@@ -25,7 +25,8 @@ public class StringProcessorTest {
     "'',''",
     "this contains spaces,secaps sniatnoc siht",
     " abc , cba ",
-    "' ',' '"})
+    "' ',' '",
+    "HEllo,ollEH"})
     @DisplayName("Tests whether simple strings can be reversed")
     public void shouldReverseSimpleString(String input, String expected) {
         assertEquals(expected, processor.reverse(input));
