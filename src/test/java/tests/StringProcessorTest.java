@@ -40,7 +40,8 @@ public class StringProcessorTest {
     "😊😒😊,true",
     "🎶😢,false",
     "'',true",
-    ",true"})
+    ",true",
+    "1,true"})
     @DisplayName("Tests if string is palindrome")
     public void shouldDetectPalindrome(String input, boolean expected) {
         assertEquals(expected, processor.detectPalindrome(input));
