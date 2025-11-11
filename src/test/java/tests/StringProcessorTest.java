@@ -51,7 +51,8 @@ public class StringProcessorTest {
     @CsvSource({
             "aaa,a3",
             "bbb,b3",
-            "aba,aba"
+            "aba,aba",
+            ","
     })
     @DisplayName("Test Strings Compressor")
     public void shouldCompressString(String input, String expected) {
