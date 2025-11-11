@@ -38,7 +38,12 @@ public class StringProcessor {
         return compressedString.length() < input.length() ? compressedString.toString() : input;
     }
 
-    public int countwords(String input) {
-        return 2;
+    public int countWords(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            return 0; // Handle null or empty strings
+        }
+        // Split the string by one or more whitespace characters
+        String[] words = input.trim().split("\\s+");
+        return words.length;
     }
 }

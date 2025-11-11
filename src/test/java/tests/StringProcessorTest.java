@@ -67,6 +67,6 @@ public class StringProcessorTest {
     "Three words now,3"})
     @DisplayName("Test Word Counter")
     public void shouldCountWords(String input, int expected) {
-        assertEquals(expected, processor.countwords(input));
+        assertEquals(expected, processor.countWords(input));
     }
 }
