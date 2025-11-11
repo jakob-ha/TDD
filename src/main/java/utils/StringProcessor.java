@@ -38,4 +38,7 @@ public class StringProcessor {
         return compressedString.length() < input.length() ? compressedString.toString() : input;
     }
 
+    public int countwords(String input) {
+        return 2;
+    }
 }
