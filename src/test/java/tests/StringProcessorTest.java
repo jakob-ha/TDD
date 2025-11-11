@@ -74,4 +74,13 @@ public class StringProcessorTest {
     public void shouldCountWords(String input, int expected) {
         assertEquals(expected, processor.countWords(input));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "abra@kadabra.com,true"
+    })
+    @DisplayName("Tests Validating Email Format")
+    public void shouldValidateEmailFormat(String input, boolean expected) {
+        assertEquals(expected,processor.validateEmailFormat(input));
+    }
 }
