@@ -53,7 +53,8 @@ public class StringProcessorTest {
             "bbb,b3",
             "aba,aba",
             ",",
-            "AAAAAAAAAllllllllllllOOOOOOOoooo,A9l12O7o4"
+            "AAAAAAAAAllllllllllllOOOOOOOoooo,A9l12O7o4",
+            "'   ',' 3'"
     })
     @DisplayName("Test Strings Compressor")
     public void shouldCompressString(String input, String expected) {
