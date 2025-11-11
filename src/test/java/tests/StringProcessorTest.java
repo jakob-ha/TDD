@@ -60,4 +60,12 @@ public class StringProcessorTest {
     public void shouldCompressString(String input, String expected) {
         assertEquals(expected,processor.compress(input));
     }
+
+
+    @ParameterizedTest
+    @CsvSource({"Two words,2"})
+    @DisplayName("Test Word Counter")
+    public void shouldCountWords(String input, int expected) {
+        assertEquals(expected, processor.countwords(input));
+    }
 }
