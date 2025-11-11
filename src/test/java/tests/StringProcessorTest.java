@@ -66,7 +66,10 @@ public class StringProcessorTest {
     @CsvSource({"Two words,2",
     "Three words now,3",
     " Still  three   words ,3",
-    "One,1"})
+    "One,1",
+    "' ',0",
+            "'  ',0",
+    ",0"})
     @DisplayName("Test Word Counter")
     public void shouldCountWords(String input, int expected) {
         assertEquals(expected, processor.countWords(input));
