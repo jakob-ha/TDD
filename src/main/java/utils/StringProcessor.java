@@ -46,4 +46,8 @@ public class StringProcessor {
         String[] words = input.trim().split("\\s+");
         return words.length;
     }
+
+    public boolean validateEmailFormat(String input) {
+        return true;
+    }
 }
