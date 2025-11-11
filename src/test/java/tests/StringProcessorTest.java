@@ -46,4 +46,13 @@ public class StringProcessorTest {
     public void shouldDetectPalindrome(String input, boolean expected) {
         assertEquals(expected, processor.detectPalindrome(input));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "aaa,a3"
+    })
+    @DisplayName("Test Strings Compressor")
+    public void shouldCompressString(String input, String expected) {
+        assertEquals(expected,processor.compress(input));
+    }
 }
