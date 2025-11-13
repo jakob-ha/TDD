@@ -3,10 +3,8 @@ package tests;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import utils.Calculator;
-import utils.SentimentCategory;
-import utils.SentimentResult;
-import utils.StringProcessor;
+import org.junit.jupiter.api.Test;
+import utils.*;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -14,16 +12,19 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class TextAnalyzerTest {
     Calculator calculator;
     StringProcessor stringProcessor;
+    TextAnalyzer textAnalyzer;
 
     @BeforeEach
     void setUp() {
         stringProcessor = new StringProcessor();
         calculator = new Calculator("Cal");
+        textAnalyzer = new TextAnalyzer(calculator, stringProcessor);
     }
 
+    @Test
     @DisplayName("Should analyze positive sentiment correctly")
-    public SentimentResult shouldAnalyzePositiveSentimentCorrectly(){
+    public void shouldAnalyzePositiveSentimentCorrectly(){
         String positiveSentence = "Happy and wonderful, sunshine and bliss in every corner of this joyous party.";
-        Assert.assertEquals(new SentimentResult(1, SentimentCategory.POSITIVE, 5,0),textAnalyzer.analyzeSentiment(positiveSentence));
+        assertThat(textAnalyzer.analyzeSentiment(positiveSentence)).usingRecursiveComparison().isEqualTo(new SentimentResult(1, SentimentCategory.POSITIVE, 5,0));
         }
 }
