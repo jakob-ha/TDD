@@ -41,4 +41,11 @@ public class TextAnalyzerTest {
         String neutralSentence = "Agony or bliss, it won't last forever.";
         assertThat(textAnalyzer.analyzeSentiment(neutralSentence)).usingRecursiveComparison().isEqualTo(new SentimentResult(0, SentimentCategory.NEUTRAL, 1,1));
     }
+
+    @Test
+    @DisplayName("Should handle empty text in sentiment analysis")
+    public void shouldHandleEmptyTextInSentimentAnalysis(){
+        String emptySentence = "";
+        assertThat(textAnalyzer.analyzeSentiment(emptySentence)).usingRecursiveComparison().isEqualTo(new SentimentResult(0, SentimentCategory.NEUTRAL, 0, 0));
+    }
 }
