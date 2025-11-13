@@ -34,4 +34,11 @@ public class TextAnalyzerTest {
         String negativeSentence = "Agony! Agony! Agony! I've never been more distraught.";
         assertThat(textAnalyzer.analyzeSentiment(negativeSentence)).usingRecursiveComparison().isEqualTo(new SentimentResult(-1, SentimentCategory.NEGATIVE, 0,4));
     }
+
+    @Test
+    @DisplayName("Should analyze neutral sentiment correctly")
+    public void shouldAnalyzeNeutralSentimentCorrectly(){
+        String neutralSentence = "Agony or bliss, it won't last forever.";
+        assertThat(textAnalyzer.analyzeSentiment(neutralSentence)).usingRecursiveComparison().isEqualTo(new SentimentResult(0, SentimentCategory.NEUTRAL, 1,1));
+    }
 }
