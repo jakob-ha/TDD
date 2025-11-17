@@ -70,7 +70,7 @@ public class TextAnalyzerTest {
         @DisplayName("Should classify reading levels correctly")
         public void shouldClassifyReadingLevelsCorrectly() {
             String text = "This is an easy text. Not many words.";
-            assertThat(textAnalyzer.assessReadability(text)).usingRecursiveComparison().isEqualTo(new ReadabilityResult(107.6, ReadingLevel.VERY_EASY, 2, 8, 9, 4, 1.125));
+            assertThat(textAnalyzer.assessReadability(text)).usingRecursiveComparison().isEqualTo(new ReadabilityResult(97.025, ReadingLevel.VERY_EASY, 2, 8, 10, 4, 1.25));
 
         }
     }
