@@ -73,5 +73,13 @@ public class TextAnalyzerTest {
             assertThat(textAnalyzer.assessReadability(text)).usingRecursiveComparison().isEqualTo(new ReadabilityResult(97.025, ReadingLevel.VERY_EASY, 2, 8, 10, 4, 1.25));
 
         }
+
+        @Test
+        @DisplayName("Should handle complex sentences correctly")
+        public void shouldHandleComplexSentencesCorrectly() {
+            String text = "Confounding complexities mystifying esoteric connoisseurs abound. Demanding understanding. ";
+            assertThat(textAnalyzer.assessReadability(text)).usingRecursiveComparison().isEqualTo(new ReadabilityResult(-72.175, ReadingLevel.VERY_HARD, 2, 8, 26, 4, 3.25));
+
+        }
     }
 }
