@@ -20,17 +20,31 @@ public class TextAnalyzer {
         int positiveWords = 0;
         int negativeWords = 0;
         for (String word : words) {
-            if (POSITIVE_WORDS.contains(word)) {positiveWords++;}
-            if (NEGATIVE_WORDS.contains(word)) {negativeWords++;}
+            if (POSITIVE_WORDS.contains(word)) {
+                positiveWords++;
+            }
+            if (NEGATIVE_WORDS.contains(word)) {
+                negativeWords++;
+            }
         }
         double sentimentScore = 0;
         if (positiveWords + negativeWords != 0) {
             sentimentScore = ((double) positiveWords - (double) negativeWords) / ((double) positiveWords + (double) negativeWords);
-        } else {sentimentScore = 0;}
+        } else {
+            sentimentScore = 0;
+        }
         SentimentCategory sentimentCategory;
-        if (sentimentScore == 0){sentimentCategory = SentimentCategory.NEUTRAL;}
-        else if (sentimentScore > 0) {sentimentCategory = SentimentCategory.POSITIVE;}
-        else {sentimentCategory = SentimentCategory.NEGATIVE;}
+        if (sentimentScore == 0) {
+            sentimentCategory = SentimentCategory.NEUTRAL;
+        } else if (sentimentScore > 0) {
+            sentimentCategory = SentimentCategory.POSITIVE;
+        } else {
+            sentimentCategory = SentimentCategory.NEGATIVE;
+        }
         return new SentimentResult(sentimentScore, sentimentCategory, positiveWords, negativeWords);
+    }
+
+    public ReadabilityResult assessReadability(String text) {
+        return new ReadabilityResult(0, ReadingLevel.VERY_EASY, 0, 0, 0, 0, 0);
     }
 }
