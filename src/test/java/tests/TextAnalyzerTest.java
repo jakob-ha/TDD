@@ -11,19 +11,20 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DisplayName("Complex TextAnalyzer TDD Demo")
 public class TextAnalyzerTest {
 
+    Calculator calculator;
+    StringProcessor stringProcessor;
+    TextAnalyzer textAnalyzer;
+
+    @BeforeEach
+    void setUp() {
+        stringProcessor = new StringProcessor();
+        calculator = new Calculator("Cal");
+        textAnalyzer = new TextAnalyzer(calculator, stringProcessor);
+    }
+
     @Nested
     @DisplayName("Sentiment Analysis Tests")
     class SentimentAnalysisTests {
-        Calculator calculator;
-        StringProcessor stringProcessor;
-        TextAnalyzer textAnalyzer;
-
-        @BeforeEach
-        void setUp() {
-            stringProcessor = new StringProcessor();
-            calculator = new Calculator("Cal");
-            textAnalyzer = new TextAnalyzer(calculator, stringProcessor);
-        }
 
         @Test
         @DisplayName("Should analyze positive sentiment correctly")
@@ -58,5 +59,11 @@ public class TextAnalyzerTest {
     @DisplayName("Readability Analysis Tests")
     class ReadabilityAnalysisTests {
 
+        @Test
+        @DisplayName("Should calculate Flesch Reading Ease correctly")
+        public void shouldCalculateFleschReadingEaseCorrectly() {
+            String text = "";
+            assertThat(textAnalyzer.assessReadability(text)).usingRecursiveComparison().isEqualTo(new ReadabilityResult(0, ReadingLevel.VERY_EASY, 0, 0, 0, 0, 0));
+        }
     }
 }
